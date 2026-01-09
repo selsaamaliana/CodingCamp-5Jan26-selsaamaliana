@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List - Selsa</title>
 
-    <!-- CSS External -->
-    <link rel="stylesheet" href="css\style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#facc15">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
-    <!-- Header Content-->
-    <header></header>
+<header>
+    <h1 class="text font-bold text-2xl text-center">Todo List Website - Selsa</h1>
+</header>
 
-    <!-- Main Content -->
-    <main></main>
+<main>
+    <section>
+        <form onsubmit="return false">
+            <input class="border rounded p-2" type="text" id="todo-input" placeholder="Enter your todo item here">
+            <input class="border rounded p-2" type="date" id="todo-date">
+            <input class="border rounded p-2" type="time" id="todo-time">
+        </form>
 
-    <!-- Footer Content -->
-    <footer></footer>
+        <button onclick="addTodo()" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-4 mt-2">
+            Add Todo
+        </button>
+    </section>
 
+    <section class="flex pt-2 justify-between">
+        <div>
+            <label>Filter:</label>
+            <select id="filter" class="border rounded p-2">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+            </select>
+        </div>
 
-    <!-- JS External -->
-    <script src="js/script.js"></script>
+        <div>
+            <button onclick="removeCompleted()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4">
+                Clear Completed
+            </button>
+        </div>
+    </section>
+
+    <section class="pt-4">
+        <h1 class="text-2xl font-semibold">List of Todos</h1>
+        <ul class="pt-2" id="todo-list">
+            <li class="text-gray-500">No todos available</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p class="text-center pt-4">© 2026 Todo List</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
-
 </html>
